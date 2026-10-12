@@ -95,7 +95,7 @@ private fun isDefaultValue(value: Any?, defaultValue: Any?): Boolean {
   return value == defaultValue
 }
 
-private val AnnotationUseSiteTarget.kpAnalog: UseSiteTarget
+private val AnnotationUseSiteTarget.kpAnalog: UseSiteTarget?
   get() = when (this) {
     AnnotationUseSiteTarget.FILE -> UseSiteTarget.FILE
     AnnotationUseSiteTarget.PROPERTY -> UseSiteTarget.PROPERTY
@@ -106,6 +106,7 @@ private val AnnotationUseSiteTarget.kpAnalog: UseSiteTarget
     AnnotationUseSiteTarget.PARAM -> UseSiteTarget.PARAM
     AnnotationUseSiteTarget.SETPARAM -> UseSiteTarget.SETPARAM
     AnnotationUseSiteTarget.DELEGATE -> UseSiteTarget.DELEGATE
+    else -> null // temporary fix until google or squareup fixes it
   }
 
 internal fun KSType.unwrapTypeAlias(): KSType {
