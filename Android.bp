@@ -26,6 +26,16 @@ java_library_host {
 }
 
 java_library_host {
+    name: "kotlinpoet-ksp",
+    srcs: ["interop/ksp/src/main/**/*.kt"],
+    kotlincflags: ["-Xjvm-default=all"],
+    static_libs: [
+        "kotlinpoet",
+        "kotlin_symbol_processing_api",
+    ],
+}
+
+java_library_host {
     name: "kotlinpoet-javapoet",
     srcs: ["interop/javapoet/src/main/**/*.kt"],
     kotlincflags: ["-Xjvm-default=all"],
